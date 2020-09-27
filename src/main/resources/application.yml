@@ -1,0 +1,10 @@
+server:
+  port: 7000
+  servlet:
+    context-path: /shiro
+
+spring:
+  application:
+    name: shiro
+  profiles:
+    active: dev
