@@ -2,6 +2,7 @@ package com.xzh.shiro.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +19,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @ApiOperation(value = "首页")
-    @GetMapping
+    @GetMapping("/home")
     public String home() {
-        return "success";
+        return "welcome home";
+    }
+
+    @GetMapping("/x")
+    public String x() {
+        return "xxx success";
+    }
+
+    @RequiresPermissions("z")
+    @GetMapping("/z")
+    public String z() {
+        return "zzz success";
+    }
+
+    @RequiresPermissions("h")
+    @GetMapping("/h")
+    public String h() {
+        return "hhh success";
     }
 }
